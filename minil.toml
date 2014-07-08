@@ -1,0 +1,6 @@
+name = "Teng-Plugin-Pager-Cache-Redis"
+# badges = ["travis"]
+authority="cpan:MERU"
+
+module_maker="ModuleBuildTiny"
+
