@@ -58,7 +58,8 @@ sub fetch_with_pager {
     my $limit  = $args->{row};
     my $offset = ($args->{page} - 1 ) * $limit;
 
-    my @primary_keys = $self->_redis->excute(ZRANGE => $self->group_key($table_name, $order_by_key), $offset, $limit);
+    my @primary_keys
+        = $self->_redis->excute(ZRANGE => $self->group_key($table_name, $order_by_key), $offset, ($limit - 1 +$offset) );
     my @rows  = $self->search($table_name, [ $prymary_key => { IN => \@primary_keys } ], { order_by => 'created' });
     my $count = $self->_redis->excute('ZCARD' => $self->group_key($table_name, $order_by_key));
 
