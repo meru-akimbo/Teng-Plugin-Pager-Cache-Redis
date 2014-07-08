@@ -42,6 +42,9 @@
       },
       "runtime" : {
          "requires" : {
+            "Class::Accessor::Lite" : "0",
+            "Data::Page" : "0",
+            "Redis" : "0",
             "perl" : "5.008001"
          }
       },
@@ -52,6 +55,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/meru-akimbo/Teng-Plugin-Pager-Cache-Redis/issues"
+      },
+      "homepage" : "https://github.com/meru-akimbo/Teng-Plugin-Pager-Cache-Redis",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/meru-akimbo/Teng-Plugin-Pager-Cache-Redis.git",
+         "web" : "https://github.com/meru-akimbo/Teng-Plugin-Pager-Cache-Redis"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:MERU"
 }
