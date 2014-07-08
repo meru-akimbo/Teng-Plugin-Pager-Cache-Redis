@@ -10,6 +10,12 @@ our $VERSION = "0.01";
 
 our @EXPORT = qw/group_key insert_and_update_pager update_with_pager delete_with_pager fetch_with_pager/;
 
+sub init {
+    my ($self, $opt) = @_;
+    $self->redis_config($opt->{redis_config});
+}
+
+
 sub group_key {
     my ($self, $table_name, $order_by_key) = @_;
     return sprintf('pager-%s-%s', $table_name, $order_by_key->{order_by_key});
@@ -73,7 +79,7 @@ sub fetch_with_pager {
 
 sub _redis {
     my ($self,) = @_;
-    return Redis->new(%{ $self->redis_config });
+    return Redis->new(%{ $self->redis_config || +{}});
 }
 
 
